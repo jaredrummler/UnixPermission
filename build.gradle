@@ -1,0 +1,38 @@
+buildscript {
+
+    ext.versions = [
+            kotlin: '1.3.71',
+            junit : '4.12'
+    ]
+
+    ext.deps = [
+            kotlin: [
+                    stdlib: [
+                            jdk: "org.jetbrains.kotlin:kotlin-stdlib-jdk7:${versions.kotlin}"
+                    ]
+            ],
+            junit : "junit:junit:${versions.junit}"
+    ]
+
+    repositories {
+        google()
+        jcenter()
+    }
+
+    dependencies {
+        classpath 'com.android.tools.build:gradle:3.6.1'
+        classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:${versions.kotlin}"
+    }
+
+}
+
+allprojects {
+    repositories {
+        google()
+        jcenter()
+    }
+}
+
+task clean(type: Delete) {
+    delete rootProject.buildDir
+}
